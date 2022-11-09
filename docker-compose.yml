@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: open_forms_api
+    restart: unless-stopped
+    tty: true
+    command: >
+      sh -c "python main.py"
+    env_file:
+      - .env
+    environment:
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+    working_dir: /var/www
+    volumes:
+      - ./src:/var/www
+    ports:
+      - ${UVICORN_HOST}:${UVICORN_PORT}:8000
