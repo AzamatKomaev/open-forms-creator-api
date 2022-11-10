@@ -13,7 +13,39 @@ services:
     environment:
       JWT_SECRET_KEY: ${JWT_SECRET_KEY}
     working_dir: /var/www
+    links:
+      - db
     volumes:
       - ./src:/var/www
     ports:
       - ${UVICORN_HOST}:${UVICORN_PORT}:8000
+    networks:
+      - app-network
+
+
+  db:
+    image: postgres
+    container_name: open_forms_db
+    restart: unless-stopped
+    tty: true
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./postgres_scripts:/docker-entrypoint-initdb.d
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  pg_data:
+    driver: local
