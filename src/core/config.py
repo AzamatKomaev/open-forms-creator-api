@@ -3,8 +3,7 @@ import os
 
 """
 ###################################################################################################
-Do not change ENV variables here! Just create .env and .env.testing (copy .env.example and set your own values)
-file in root folder and add these vars there!
+Do not change ENV variables here! Just create .env file based on .env.example in root folder and add these vars there!
 ###################################################################################################
 """
 
