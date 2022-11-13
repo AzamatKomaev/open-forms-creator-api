@@ -7,16 +7,16 @@ services:
     restart: unless-stopped
     tty: true
     command: >
-      sh -c "python main.py"
+      bash -c "python3 main.py"
     env_file:
       - .env
     environment:
       JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-    working_dir: /var/www
+    working_dir: /home/azamat/src
     links:
       - db
     volumes:
-      - ./src:/var/www
+      - ./src:/home/azamat/src
     ports:
       - ${UVICORN_HOST}:${UVICORN_PORT}:8000
     networks:
