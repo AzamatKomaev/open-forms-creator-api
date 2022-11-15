@@ -12,6 +12,7 @@ Do not change ENV variables here! Just create .env file based on .env.example in
 POSTGRES_DB = os.getenv('POSTGRES_DB', 'open_forms')
 POSTGRES_TEST_DB = os.getenv('POSTGRES_TEST_DB', 'open_forms_test')
 POSTGRES_USER = os.getenv('POSTGRES_USER', 'admin')
+POSTGRES_HOST = os.getenv('POSTGRES_HOST', 'db')
 POSTGRES_PORT = os.getenv('POSTGRES_PORT', '5432')
 POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD', 'admin123')
 

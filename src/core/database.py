@@ -8,7 +8,7 @@ from . import config
 SQLALCHEMY_DATABASE_URL = 'postgresql+pg8000://{0}:{1}@{2}:{3}/{4}'.format(
     config.POSTGRES_USER,
     config.POSTGRES_PASSWORD,
-    config.UVICORN_HOST,
+    config.POSTGRES_HOST,
     5432,
     config.POSTGRES_DB
 )

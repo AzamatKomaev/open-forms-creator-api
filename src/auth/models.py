@@ -9,8 +9,8 @@ class User(Base):
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, index=True)
-    email = Column(Text, unique=True)
-    name = Column(String(255), unique=True)
+    email = Column(Text, unique=True, index=True)
+    name = Column(String(255), unique=True, index=True)
     type = Column(String(255), default='base')
     is_active = Column(Boolean, default=False, server_default="0")
     password = Column(String(255))
